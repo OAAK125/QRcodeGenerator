@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="container">
-        <p>Enter your text or URL</p>
+        <label for="qrText">Enter your text or URL</label>
         <input type="text" placeholder="Text or URL" id="qrText">
         <div id="imgBox">
-            <img src="" id="qrImage" alt="QR Code">
+            <img src="" id="qrImage" alt="Generated QR Code">
         </div>
         <button onclick="generateQRCode()">Generate QR Code</button>
     </div>
@@ -25,6 +25,7 @@
 
         function generateQRCode(text) {
             if(qrText.value.length == 0) return alert("Please enter a text or URL");
+            
             qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
             imgBox.classList.add("show-img");
         }
